@@ -54,6 +54,7 @@ CHUANHU_DESCRIPTION = i18n("由Bilibili [土川虎虎虎](https://space.bilibili
 
 ONLINE_MODELS = [
     "GPT3.5 Turbo",
+    "claude-3-5-sonnet-20240620-gpt",
     "GPT-4o",
     "GPT4 Turbo",
     "GPT3.5 Turbo Instruct",
@@ -231,6 +232,16 @@ MODEL_METADATA = {
     "GPT-4o": {
         "model_name": "gpt-4o",
         "description": "gpt4o_description",
+        "token_limit": 128000,
+        "multimodal": True,
+        "placeholder": {
+            "logo": "file=web_assets/model_logos/openai-black.webp",
+            "slogan": i18n("gpt_default_slogan"),
+        }
+    },
+    "claude-3-5-sonnet-20240620-gpt": {
+        "model_name": "claude-3-5-sonnet-20240620",
+        "description": "claude-3-5-sonnet-20240620",
         "token_limit": 128000,
         "multimodal": True,
         "placeholder": {

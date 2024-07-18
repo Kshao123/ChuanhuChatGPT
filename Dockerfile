@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster as builder
+FROM python:3.9 as builder
 RUN apt-get update \
     && apt-get install -y build-essential \
     && apt-get clean \
@@ -8,11 +8,12 @@ COPY requirements_advanced.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 # RUN pip install --user --no-cache-dir -r requirements_advanced.txt
 
-FROM python:3.10-slim-buster
+FROM python:3.9
 LABEL maintainer="iskoldt"
 COPY --from=builder /root/.local /root/.local
 ENV PATH=/root/.local/bin:$PATH
 COPY . /app
 WORKDIR /app
 ENV dockerrun=yes
+
 CMD ["python3", "-u", "ChuanhuChatbot.py","2>&1", "|", "tee", "/var/log/application.log"]
