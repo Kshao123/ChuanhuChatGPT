@@ -730,7 +730,10 @@ def add_details(lst):
     nodes = []
     for index, txt in enumerate(lst):
         brief = txt[:25].replace("\n", "")
-        nodes.append(f"<details><summary>{brief}...</summary><p>{txt}</p></details>")
+        formatedCode = txt
+        nodes.append(f"<details><summary>{brief}...</summary><pre><code class='language-javaScript'>{formatedCode}</code></p></details>")
+
+    nodes.append(f"<script>console.log('hljs run'); hljs.highlightAll();</script>")
     return nodes
 
 
